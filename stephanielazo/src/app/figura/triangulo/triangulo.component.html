@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Triángulo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-item>
+    <ion-label>Lado A</ion-label>
+    <ion-input type="number" [(ngModel)]="ladoA"></ion-input>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label>Lado B</ion-label>
+    <ion-input type="number" [(ngModel)]="ladoB"></ion-input>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label>Lado C</ion-label>
+    <ion-input type="number" [(ngModel)]="ladoC"></ion-input>
+  </ion-item>
+
+  
+  <ion-button expand="full" (click)="calcularPerimetro()">Calcular Perímetro</ion-button>
+
+  
+  <ion-item *ngIf="perimetro">
+    <ion-label>Perímetro: {{ perimetro }}</ion-label>
+  </ion-item>
+</ion-content>

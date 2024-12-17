@@ -1,0 +1,18 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Círculo</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-item>
+      <ion-label>Radio</ion-label>
+      <ion-input type="number" [(ngModel)]="radio" placeholder="Ingresa el radio del círculo"></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="calcularPerimetro()">Calcular Perímetro</ion-button>
+
+    
+    <div *ngIf="perimetro !== null">
+      <p>Perímetro: {{ perimetro }} unidades</p>
+    </div>
+  </ion-card-content>
+</ion-card>

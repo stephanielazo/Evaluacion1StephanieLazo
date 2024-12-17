@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Figura Geométrica</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openFiguraOptions()">Escoja una figura geométrica</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div *ngIf="selectedFigura">
+    
+    <ion-card *ngIf="selectedFigura === 'circulo'">
+      <ion-card-header>
+        <ion-card-title>Círculo</ion-card-title>
+        <p>Perímetro</p>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          El perímetro de un círculo es la longitud de la línea que forma su borde.
+        </p>
+        <p style="color: red; font-size: 0.9em;">
+          <strong>Donde:</strong><br>
+          <strong>P:</strong> perímetro <br>
+          <strong>d:</strong> diámetro <br>
+          <strong>r:</strong> radio del círculo <br>
+          <strong>π:</strong> 3.1416
+        </p>
+        <div style="text-align: center; margin: 10px 0;">
+          <img src="assets/circulo.png" alt="círculo gráfico" width="150px">
+        </div>
+
+        <ion-item>
+          <ion-label position="stacked">Radio (cm)</ion-label>
+          <ion-input type="number" [(ngModel)]="radio"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" color="primary" (click)="calcularPerimetro()">
+          CALCULAR EL PERÍMETRO
+        </ion-button>
+
+        <div *ngIf="resultado">
+          <p><strong>El perímetro es {{ resultado | number: '1.2-2' }} cm</strong></p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    
+    <ion-card *ngIf="selectedFigura === 'triangulo'">
+      <ion-card-header>
+        <ion-card-title>Triángulo</ion-card-title>
+        <p>Perímetro</p>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          El perímetro de un triángulo es la suma de las longitudes de sus tres lados. En otras palabras, es la medida total del contorno o borde del triángulo.
+        </p>
+        <p style="color: blue; font-size: 0.9em; text-align: center;">
+          <strong>p = a + b + c</strong>
+        </p>
+        <div style="text-align: center; margin: 10px 0;">
+          <img src="assets/triangulo.png" alt="triángulo gráfico" width="150px">
+        </div>
+
+       
+        <ion-item>
+          <ion-label position="stacked">Lado A (cm)</ion-label>
+          <ion-input type="number" [(ngModel)]="ladoA"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Lado B (cm)</ion-label>
+          <ion-input type="number" [(ngModel)]="ladoB"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Lado C (cm)</ion-label>
+          <ion-input type="number" [(ngModel)]="ladoC"></ion-input>
+        </ion-item>
+
+        
+        <ion-button expand="block" color="primary" (click)="calcularPerimetro()">
+          CALCULAR EL PERÍMETRO
+        </ion-button>
+
+        <div *ngIf="resultado">
+          <p><strong>El perímetro es {{ resultado | number: '1.0-0' }} cm</strong></p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
